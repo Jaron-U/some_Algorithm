@@ -1,0 +1,87 @@
+Hd <- {x1,x2...xn}      # the list to store distances from your start point to each hotel
+n <- hotel number       # the number of hotel
+D <- max distence can move 
+ans = {}                # store the answer
+cur = 0                 # set current hotel index is 0
+next = 1                # set next hotel index is 1
+
+while 1:
+    # When the distance of the next hotel minus the distance of the current hotel is greater than d 
+    if D > Hd[next] - Hd[cur]
+        # then you can stay in the previous hotel of the next hotel
+        ans{} <- next - 1
+        # current hotel will become next-1
+        cur = next - 1
+        next += 1
+        # if find the check hotal is greater than total number of hotel, just jump out 
+        if next > n:
+            break 
+
+
+printActivities(s , f, act_n):
+    selected = []
+    act_tuple <- tuple(act_n, s, f))
+    act_tuple.sort(act_tuple[1])
+    n = len(act_tuple)
+    i = n-1
+    selected <- act_tuple[i]
+    num_activity = 1
+    for j from i to 0:
+        if act_tuple[j][2] <= act_tuple[i][1]:
+            selected <- act_tuple[j]
+            num_activity += 1
+            i = j
+    print("Maximum number of activities =", num_activity)
+    selected = tuple(reversed(selected))
+    for i in range(0, len(selected)):
+        print(selected[i][0], end = " ")
+
+printresult(filename):
+    fe = open(filename)
+    lines = fe.readlines() 
+    max_line = len(lines)
+    n_act = lines[line_idx]
+    while 1:
+        set_num += 1
+        s = []
+        f = []
+        act_idx = []
+        line_idx += 1
+        for _ from 0 to n_act:
+            act_info = []
+            act_info <- list(lines[line_idx])
+            act_idx <- act_info[0]
+            s[] <- act_info[1]
+            f[] <- act_info[2]
+            line_idx += 1
+        print("Set", set_num)
+        printActivities(s , f, act_idx)
+        if line_idx < max_line:
+            n_act = int(lines[line_idx])
+        else:
+            break
+        
+    fe.close()
+
+printresult("act.txt")
+
+
+
+I just Found I forget to use the sort Algorithm in my program. I just write a insertsort fit my program.
+def insertsort(tuple1):
+    for i in range(1, len(tuple1)):
+        # temp is insertion element
+        temp = tuple1[i]
+        j = i
+        # when the j is greater than 0 and the insertion element is less than the left element, 
+        # they will swap the position constantly.
+        while j > 0 and temp[1] < tuple1[j-1][1]:
+            tuple1[j] = tuple1[j-1]
+            tuple1[j-1] = temp
+            j -= 1
+    return tuple1
+    
+In the line 13 of my code. Just change  from "tuple1.sort(key = lambda x : x[1])" to "act_tuple = insertsort(act_tuple)" 
+
+For part 3, after adding the sort algorithm into my code, the running time of the code will become O(n) + O(n^2), 
+because the running time of the insertion sort is O(n^2). So the running time should be O(n) + O(n^2) = O(n^2). 
