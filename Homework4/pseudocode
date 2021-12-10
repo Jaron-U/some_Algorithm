@@ -1,0 +1,98 @@
+def findParent(parent, n):
+    if parent[n] == n:
+        return n
+    return findParent(parent, parent[n])
+
+def union(parent, x, y):
+    parent[findParent(parent,x)] = findParent(parent,y)
+
+def kruskal_algo(g, n):
+    g <- sort according x[2]
+    for node in range(n):
+        parent[] <- node
+    for i in range(len(g)):
+        u, v, w = g[i]
+        x = findParent(parent, u)
+        y = findParent(parent, v)
+        if (x != y):
+            result += w
+            edge += 1
+            union(parent, x, y)
+        if (edge == n-1):
+            return result
+
+def handlefile(filename):
+    f = open(filename)
+    lines <= f.readlines()
+    test_cases <-lines[0]
+    for i in range(test_cases):
+        n_vertex <- lines[lines_idx]
+        for _ in range(n_vertex):
+            point[] <- lines[lines_idx]
+            all_points.append(point)
+            lines_idx += 1
+        g = creat_graph(all_points)
+        print("Test case {0}: MST weight {1}".format(i+1, kruskal_algo(g, n_vertex)))
+
+
+
+
+function Dijkstra(Graph, source):
+    create vertex set Q
+    for each vertex v in Graph:            
+        dist[v] ← INFINITY                 
+        prev[v] ← UNDEFINED                
+        add v to Q                     
+    dist[source] ← 0                          
+        while Q is not empty:
+          u ← vertex in Q with min dist[u]   
+                                             
+          remove u from Q
+          for each neighbor v of u:     
+              alt ← dist[u] + length(u, v)
+              if alt < dist[v]:              
+                  dist[v] ← alt
+                  prev[v] ← u
+    return dist[], prev[]
+
+for i in range(len(V)):
+    Dijkstra(Graph, V[i])
+
+
+
+
+
+function dijkstra(G, S)
+    for each vertex V in G
+        distance[V] <- infinite
+        previous[V] <- NULL
+        If V != S, add V to Priority Queue Q
+    distance[S] <- 0
+	
+    while Q IS NOT EMPTY
+        U <- Extract MIN from Q
+        for each unvisited neighbour V of U
+            tempDistance <- distance[U] + edge_weight(U, V)
+            if tempDistance < distance[V]
+                distance[V] <- tempDistance
+                previous[V] <- U
+                sum += distance[V]
+    return sum
+
+for i in range(len(V)):
+    list.append() <- Dijkstra(Graph, V[i])
+
+sort.list()
+
+return(sort.list(0))
+
+
+
+[0, 18, 4, 7, 10, 6, 12, 15]
+[18, 0, 14, 11, 8, 14, 6, 3]
+[4, 14, 0, 3, 6, 2, 8, 11]
+[7, 11, 3, 0, 3, 5, 5, 8]
+[10, 8, 6, 3, 0, 8, 2, 5]
+[6, 14, 2, 5, 8, 0, 8, 11]
+[12, 6, 8, 5, 2, 8, 0, 3]
+[15, 3, 11, 8, 5, 11, 3, 0]
