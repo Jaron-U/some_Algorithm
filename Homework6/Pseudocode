@@ -1,0 +1,50 @@
+def creat_graph(all_points, n):
+    for i -> n:
+        g <- ([max]*n)
+
+    for i -> n-1:
+        for _ -> n-1-i:
+            distance = sqrt(pow((all_points[x][1] - all_points[y][1]), 2) 
+                + pow((all_points[x][2] - all_points[y][2]), 2)))
+            g[x][y] <- distance
+            g[y][x] <- distance
+            y += 1
+        x += 1
+    return g
+
+def NearestNeighbor(g, n):
+    current_city = 0
+    for _ -> (n-1):
+        nearest_city_d = min(g[current_city])
+        total_d += nearest_city_d
+        i <- g[current_city][i] = nearest_city_d
+        nearest_city = i
+        tourlist <- nearest_city
+
+        for i -> n:
+            g[i][current_city] = max
+
+        current_city = nearest_city
+    
+    total_d += g[start_city][last_city]
+    tourlist <- total_d
+    return tourlist
+
+def handlefile(filename):
+    f = open(filename)
+    lines <- f.readlines
+    lines_idx = 0
+    n_vertex = int(lines[lines_idx])
+    lines_idx += 1
+
+    for _ -> n_vertex:
+        point <- lines[lines_idx]
+        all_points <- point
+        lines_idx += 1
+
+    g = creat_graph(all_points)
+    final_tour = NearestNeighbor(g, n_vertex)
+    distance = final_tour.pop()
+
+    tsp_example_tour -> filename+'.tour'
+    final_tour -> filename+'.tour'
