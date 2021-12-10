@@ -1,0 +1,58 @@
+Knapsack(val, wt, W)
+    table[][]
+    for i to len(val)
+        for j to len(W)
+            if j < wt[i]
+                table[i][j] = table[i-1][j]
+            else
+                table[i][j] = max(table[i-1][j], table[i-1][j-wt[i]]+val[i])
+    return table
+
+Finditems(table, wt)
+    result[]
+    y = len(table)-1
+    x = len(table[0])-1
+    while x>0 and y>0:
+        if table[y][x] == table[y-1][x]
+            y-=1
+        else:
+            result[] <- y
+            x -= wt[y-1]
+            y-=1
+    result = list(reversed(result))
+    print(result[])
+
+printResult(filename)
+    text_list <- filename.readlines
+    case_num = lines[0]
+    line_idx = 1
+    for T=0 to case_num
+        val[]
+        wt[]
+        W[]
+        item_num = lines[line_idx]
+        line_idx += 1
+
+        for _ to items_number
+            item_info[]
+            item_info[] <- lines[line_idx]
+            val[] <- item_info[0]
+            wt[] <- item_info[1]
+            line_idx += 1
+
+        family_number = lines[line_idx]
+        line_idx += 1
+        print(Test Case (T+1))
+
+        for i=0 to family_number
+            W[] <- lines[line_idx]
+            table = KnapsackDP(val, wt, W[i])
+            total_price += table[-1][-1]
+            line_idx += 1
+        print(Total Price total_price)
+
+        for i=0 to family_number
+            table = KnapsackDP(val, wt, W[i])
+            print (i+1): finditem(table, W)
+            
+
