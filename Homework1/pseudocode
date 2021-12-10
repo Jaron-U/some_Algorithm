@@ -1,0 +1,113 @@
+
+Insertion-sort(A)
+    n = length(A)
+    for i = 1 to n
+        temp <- A[i]
+        j <- i
+        while j > 0 and A[j-1] < temp
+            A[j] = A[j-1]
+            A[j-1] = temp
+            j <- j-1
+        End while
+    End for
+
+main-fun(filename)
+    f <- read-file
+    for eachline in f
+        A <- eachline
+        A.pop(0)
+        Insertion-sort(A)
+        print(A)
+end 
+
+
+merge-sort(A)
+    if n <= 1 do
+        return A
+    mid = n/2
+    left = mergesort(0-mid)
+    right = mergesort(mid-end)
+    left_idx=0
+    right_idx=0
+    while left_idx < len(left) and right_idx < len(right)
+        if left[left_idx] < right[right_idx] do 
+            put left[left_idx] in result_arr
+            left_idx +=1
+        else do 
+            put right[right_idx] in result_arr
+            right_idx +=1
+    end while
+    put right remanent element into result_arr
+    put left remanent element into result_arr
+    return result_arr
+End
+
+main-fun(filename)
+    f <- read-file
+    for eachline in f
+        A <- eachline
+        A.pop(0)
+        arr <- merge-sort(A)
+        print(arr)
+end 
+
+
+Insertion-sort(A)
+    n = length(A)
+    for i = 1 to n
+        temp <- A[i]
+        j <- i
+        while j > 0 and A[j-1] < temp
+            A[j] = A[j-1]
+            A[j-1] = temp
+            j <- j-1
+        End while
+    End for
+End
+
+print-time(n)
+    A <- Generates n numbers with range(1,10000)
+    start<-count-time
+    Insertion-sort(A)
+    end<-count-time
+    time <- (end - start)*1000
+    print(n,time)
+
+arr_size = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
+for i in arr_size
+    print-time(arr_size)
+
+
+
+merge-sort(A)
+    if n <= 1 do
+        return A
+    mid = n/2
+    left = mergesort(0-mid)
+    right = mergesort(mid-end)
+    left_idx=0
+    right_idx=0
+    while left_idx < len(left) and right_idx < len(right)
+        if left[left_idx] < right[right_idx] do 
+            put left[left_idx] in result_arr
+            left_idx +=1
+        else do 
+            put right[right_idx] in result_arr
+            right_idx +=1
+    end while
+    put right remanent element into result_arr
+    put left remanent element into result_arr
+    return result_arr
+End
+
+print-time(n)
+    A <- Generates n numbers with range(1,10000)
+    start<-count-time
+    merge-sort(A)
+    end<-count-time
+    time <- (end - start)*1000
+    print(n,time)
+
+arr_size = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
+for i in arr_size
+    print-time(arr_size)
